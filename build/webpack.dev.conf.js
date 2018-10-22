@@ -45,6 +45,10 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     }
   },
   plugins: [
+    new wevpack.ProvidePlugin({
+      mui: 'mui',
+      'window.mui': 'mui'
+    }),
     new webpack.DefinePlugin({
       'process.env': require('../config/dev.env')
     }),
