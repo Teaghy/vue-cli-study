@@ -60,7 +60,7 @@ export default {
           this.comment.unshift(cmt)
           this.content=''
         }else{
-          console.log('shibai le')
+          Toast('失败')
         }
       });
     }

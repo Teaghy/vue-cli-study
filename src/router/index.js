@@ -8,6 +8,9 @@ import ShopCarContainer from '@/components/tabbar/ShopCarContainer.vue'
 import NewsList from '@/components/news/NewsList.vue'
 import NewsInfo from '@/components/news/NewsInfo.vue'
 import photoList from '@/components/photo/PhotoList.vue'
+import Photoinfo from '@/components/photo/Photoinfo.vue'
+import GoodsList from '@/components/goods/GoodsList.vue'
+import GoodsListInfo from '@/components/goods/GoodsListInfo.vue'
 
 
 Vue.use(Router)
@@ -49,6 +52,21 @@ export default new Router({
         name:'PhotoList',
         component: photoList
       },
+      {
+         path: '/home/photoinfo/:id',
+         name: 'Photoinfo',
+         component: Photoinfo
+      },
+       {
+         path: '/home/goodsList',
+         name: 'goodsList',
+         component: GoodsList
+       },
+       {
+         path: '/home/goodsListInfo/:id',
+         name: 'goodsListinfo',
+         component: GoodsListInfo
+       },
       {
         path: '*',
         name: 'HomeContainer',

@@ -9,10 +9,15 @@ import moment from 'moment'
 import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
 import './assets/css/index.css'
+import VuePreview from 'vue-preview'
+
+// defalut install
+
 
 // Vue.use(moment) moment不需要在Vue.use()上使用
 Vue.use(vueResource)
 Vue.use(MintUI)
+Vue.use(VuePreview)
 Vue.http.options.root = 'http://027xin.com:8899';
 Vue.http.options.emulateJSON = true;
 

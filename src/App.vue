@@ -53,6 +53,9 @@ export default {
 </script>
 
 <style scoped>
+.mint-header.is-fixed{
+  z-index: 9999;
+}
   .app-container{
     padding-top: 40px;
     padding-bottom: 50px;
