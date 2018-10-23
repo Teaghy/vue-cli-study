@@ -45,7 +45,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     }
   },
   plugins: [
-    new wevpack.ProvidePlugin({
+    new webpack.ProvidePlugin({
       mui: 'mui',
       'window.mui': 'mui'
     }),
