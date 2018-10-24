@@ -1,6 +1,6 @@
 <template>
   <div class="app-container" >
-      <mt-header fixed title="欢迎来到德莱联盟"></mt-header>
+      <mt-header fixed title="吴小丹的购物中心"></mt-header>
       <nav class="mui-bar mui-bar-tab">
         <router-link class="mui-tab-item-llb " to="/home">
           <span class="mui-icon mui-icon-home"></span>
