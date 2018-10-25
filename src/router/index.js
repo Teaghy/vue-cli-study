@@ -11,6 +11,8 @@ import photoList from '@/components/photo/PhotoList.vue'
 import Photoinfo from '@/components/photo/Photoinfo.vue'
 import GoodsList from '@/components/goods/GoodsList.vue'
 import GoodsListInfo from '@/components/goods/GoodsListInfo.vue'
+import GoodsDesc from '@/components/goods/GoodsDesc.vue'
+import GoodsComment from '@/components/goods/GoodsComment.vue'
 
 
 Vue.use(Router)
@@ -67,6 +69,16 @@ export default new Router({
          name: 'goodsListinfo',
          component: GoodsListInfo
        },
+        {
+          path: '/home/goodsDesc/:id',
+          name: 'goodsDesc',
+          component: GoodsDesc
+        },
+         {
+           path: '/home/goodsComment/:id',
+           name: 'goodsComment',
+           component: GoodsComment
+         },
       {
         path: '*',
         name: 'HomeContainer',

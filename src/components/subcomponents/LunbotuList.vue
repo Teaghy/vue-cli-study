@@ -32,6 +32,7 @@
     text-align: center;
     img {
       height: 100%;
+       //使用max-width max-height 来自适应 图片的最大高度和宽度(不会拉长与拉宽)
     }
     .isfull{
       width: 100%;
