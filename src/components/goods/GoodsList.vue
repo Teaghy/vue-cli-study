@@ -34,7 +34,7 @@ import { Toast } from "mint-ui";
     methods:{
         getGoods(){
           this.$http.get('api/getgoods?pageindex='+this.pageindex).then(result =>{
-            console.log(result)
+           // console.log(result)
             if(result.body.status === 0){
                 this.goodsList=this.goodsList.concat(result.body.message)
             }else{

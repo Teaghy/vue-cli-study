@@ -32,12 +32,12 @@ export default new Router({
     {
       path: '/shopping',
       name: 'SearchContainer',
-      component: SearchContainer
+      component: ShopCarContainer
     },
      {
        path: '/search',
        name: 'ShopCarContainer',
-       component: ShopCarContainer
+       component: SearchContainer
      },
       {
         path: '/home/newsList',

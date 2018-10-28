@@ -1,6 +1,10 @@
 <template>
   <div class="app-container" >
-      <mt-header fixed title="吴小丹的购物中心"></mt-header>
+      <mt-header fixed title="吴小丹的购物中心">
+        <span v-show="flag"  slot="left" @click="goback">
+          <mt-button icon="back">返回</mt-button>
+        </span>
+      </mt-header>
       <nav class="mui-bar mui-bar-tab">
         <router-link class="mui-tab-item-llb " to="/home">
           <span class="mui-icon mui-icon-home"></span>
@@ -11,7 +15,7 @@
           <span class="mui-tab-label">会员</span>
         </router-link>
         <router-link class="mui-tab-item-llb" to="/shopping">
-          <span class="mui-icon mui-icon-extra mui-icon-extra-cart"><span id="badge" class="mui-badge">0</span></span>
+          <span class="mui-icon mui-icon-extra mui-icon-extra-cart"><span id="badge" class="mui-badge">{{$store.getters.getAllCount}}</span></span>
           <span class="mui-tab-label">购物车</span>
         </router-link>
         <router-link class="mui-tab-item-llb" to="/search">
@@ -35,6 +39,14 @@ import { Toast } from "mint-ui";
 import { Indicator } from "mint-ui";
 export default {
   name: "App",
+  data(){
+    return {
+      flag:false
+    }
+  },
+  created(){
+      this.flag= this.$route.path =='/home'? false : true;
+  },
   methods: {
     handle() {
       Toast("提示信息");
@@ -47,6 +59,18 @@ export default {
       setTimeout(() => {
         Indicator.close();
       }, 4000);
+    },
+    goback(){
+        this.$router.go(-1);
+    }
+  },
+  watch:{
+    '$route.path':function (newval,oldval) {
+      if(newval == '/'){
+        this.flag=false
+      }else{
+        this.flag=true
+      }
     }
   }
 };

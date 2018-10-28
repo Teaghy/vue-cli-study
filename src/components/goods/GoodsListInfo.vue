@@ -27,7 +27,7 @@
               <!-- <button class="sub" @click="countSub" :class="[{'subBgc' : subflag}]">-</button>
               <input class="sum" type="text"  v-model="count">
               <button class="add" :class="[{'addBgc' : addflag}]" @click="countAdd">+</button> -->
-              <numbox :stock="goodsInfo.stock_quantity"></numbox>
+              <numbox :stock="goodsInfo.stock_quantity" @getCount="getCount"></numbox>
           </p>
           <p>
             <mt-button type="primary" size="small">立即购买</mt-button>
@@ -72,25 +72,6 @@ export default {
     this.getGoodsinfo();
   },
   methods: {
-    //手动写加减
-    // countAdd(){
-    //   if(this.count <this.goodsInfo.stock_quantity){
-    //       this.count++;
-    //        this.subflag=false
-    //   }else{
-    //       this.addflag=true;
-    //   }
-    // },
-    // countSub(){
-    //   if(this.count > 1 ){
-    //     this.count--
-    //     this.subflag=false
-    //     this.addflag=false;
-    //   }else{
-    //     this.subflag=true
-    //   }
-
-    // },
     getlunboList() {
       this.$http.get("api/getthumimages/" + this.id).then(result => {
         if (result.body.status === 0) {
@@ -117,6 +98,13 @@ export default {
     },
     addCar() {
       this.ballFlag = !this.ballFlag;
+      var buyGoodsInfo={
+        count: this.count,
+        select: true,
+        sellprice:this.goodsInfo.sell_price,
+        id: this.id
+      }
+      this.$store.commit('addToCar', buyGoodsInfo)
     },
     beforeEnter(el) {
       el.style.transform = "translate(0, 0)";
@@ -131,11 +119,15 @@ export default {
       const moveX=badgePosition.left - ballPosition.left;
       const moveY=badgePosition.top - ballPosition.top;
       el.style.transform = `translate(${moveX}px , ${moveY}px)`;
-      el.style.transition = "all 1s cubic-bezier(.4, -0.3, 1, .68";
+      el.style.transition = "all 0.5s cubic-bezier(.4, -0.3, 1, .68";
       done()
     },
     afterEnter(){
       this.ballFlag=!this.ballFlag
+    },
+    getCount(data){
+      //console.log('传递过来购买数量的值是'+data)
+      this.count=data
     }
   },
   components: {
